@@ -1,17 +1,151 @@
 // Imports
-
+@import "partials/reset";
+@import "partials/clearfix";
+@import "partials/general_styles";
 
 
 // 1. Many small items in a grid
+.small-grid-flexbox {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+
+  ul {
+    align-self: center;
+    display: flex;
+    flex-flow: row wrap;
+    height: 300px;
+    width: 100%;
+
+    li {
+      height: 30px;
+      width: 10%;
+      box-sizing: border-box;
+    }
+  }
+}
 
 
+
+
+@media (min-width: 900px) {
+  .small-grid-flexbox {
+    ul {
+      height: 400px;
+      width: 400px;
+
+      li {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        height: 40px;
+        width: 40px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
 
 // 2. 2-Column Grid
+.two-col-grid-flexbox {
+  display: flex;
+  flex-direction: column;
 
+  .column-2 {
+    flex: 1;
+  }
+  .column-1 {
+    flex: 1;
+  }
+}
+@media (min-width: 900px) {
+  .two-col-grid-flexbox {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
 
 
 // 3. Centering
+.centering-formula-1 {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.centering-formula-2 {
+  display: flex;
+  flex-flow: row nowrap;
 
-
-
+  .centered {
+    margin: auto;
+  }
+}
 // 4. Ordering
+.ordering-block {
+  display: flex;
+  flex-flow: column wrap;
+
+  .item-a {
+    order:3
+  }
+  .item-b {
+    order:1
+  }
+  .item-c {
+    order:0
+  }
+  .item-d {
+    order:2
+  }
+}
+
+@media (min-width: 900px) {
+  .ordering-block {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+
+    .item-a {
+      order:0;
+      width: 10%;
+    }
+    .item-b {
+      order:1;
+      width: 20%;
+    }
+    .item-c {
+      order:2;
+      width: 30%;
+    }
+    .item-d {
+      order:3;
+      width: 40%;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .ordering-block {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    .item-a {
+      order:0;
+      width: 100px;
+    }
+    .item-b {
+      order:-1;
+      width: 200px;
+    }
+    .item-c {
+      order:-2;
+      width: 300px;
+    }
+    .item-d {
+      order:-3;
+      width: 400px;
+    }
+  }
+}
